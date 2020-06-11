@@ -1,0 +1,31 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-8">
+            <div class="drop-shadow card mt-2">
+                <div class="card-header">
+                    Are you sure you want to delete <b>"{{object.title}}"</b>?
+                </div>
+                <div class="card-body">
+                    <p>This will delete your post permanently !</p>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-sm btn-danger ml-2">Delete</button>
+                        <a href="{% url 'blog_detail' object.id %}" type="submit" class="btn btn-sm btn-secondary float-left">Cancel</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="drop-shadow card mt-2">
+                <div class="card-header">
+                    Notifications
+                </div>
+                <div class="card-body">
+                    Body...
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

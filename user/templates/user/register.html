@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="card drop-shadow mx-auto mt-2 p-3 col-md-5">
+        <div class="reg-header">
+            <label class="underline-lab">Register Now</label>
+        </div>
+        <form method="POST">
+            {% csrf_token %}
+            {{form|crispy}}
+            <span class="text-muted"><small>Already have an acount?&nbsp;<a href="{% url 'login_page' %}">Log In</a></small></span>
+            <button type="submit" class="btn btn-sm btn-info float-right">Submit</button>
+        </form>
+    </div>
+{% endblock content %}

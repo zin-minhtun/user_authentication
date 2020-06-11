@@ -1,0 +1,35 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-8"> 
+            {% for post in posts %}
+            <div class="drop-shadow card mt-2">
+                <div class="card-header">
+                    <img class="rounded-img mr-2" src="{{post.author.profile.profile_image.url}}"/>{{post.author}}
+                    <small class="float-right">{{post.date_posted}}</small>
+                </div>
+                <div class="card-body">
+                    <h4>{{post.title}}</h4>
+                    {{post.content}}
+                </div>
+                {% if post.author == request.user %}
+                    <div class="footer p-3">
+                        <a href="{% url 'blog_detail' post.id %}" type="submit" class="btn btn-sm btn-outline-info float-right" >Edit</a>
+                    </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col-md-4">
+            <div class="drop-shadow card mt-2">
+                <div class="card-header">
+                    Notifications
+                </div>
+                <div class="card-body">
+                    Body...
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,35 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-8">
+            <div class="drop-shadow card mt-2">
+                <div class="card-header">
+                    <img class="rounded-img" src="{{object.author.profile.profile_image.url}}" />
+                    {{object.author}}<small class="float-right">{{post.date_posted}}</small>
+                </div>
+                <div class="card-body">
+                    <h4>{{object.title}}</h4>{{object.content}}
+                </div>
+                {% if object.author == request.user %}
+                    <div class="footer p-3">
+                        <a href="{% url 'blog_delete' object.pk %}" class="btn btn-sm btn-danger float-right ml-2">Delete</a>
+                        <a href="{% url 'blog_update' object.pk %}" type="submit"
+                            class="btn btn-sm btn-info float-right">Update</a>
+                        <a href="{% url 'blog_user_posts' post.author.username %}" type="submit" class="btn btn-outline-secondary btn-sm float-left">Back</a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="drop-shadow card mt-2">
+                <div class="card-header">
+                    Notifications
+                </div>
+                <div class="card-body">
+                    Body...
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

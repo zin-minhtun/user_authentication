@@ -1,0 +1,18 @@
+.navbar {
+    background-color: #417690;
+}
+
+.drop-shadow {
+    box-shadow: 0px 2px 7px #afaeae;
+    z-index:999;
+}
+
+.rounded-img {
+    border: 2px solid #417690;
+    margin-top: -5px;
+    margin-bottom: -5px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+

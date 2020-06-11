@@ -1,0 +1,30 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card drop-shadow mt-2 p-3">
+                <label>
+                    <h5>Create Post</h5>
+                </label>
+                <hr>
+                <form method="POST">
+                    {% csrf_token %}
+                    {{form|crispy}}
+                    <button type="submit" class="btn btn-sm btn-info float-right">Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="drop-shadow card mt-2">
+                <div class="card-header">
+                    Notifications
+                </div>
+                <div class="card-body">
+                    Body...
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
